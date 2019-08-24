@@ -2,12 +2,12 @@ package com.editorbar.sdk.model.v1;
 
 import com.editorbar.sdk.HttpRequest;
 
-public class PayOrderRequest extends HttpRequest<PayOrderResponse> {
-    public static final String ORDERS_PAY = "/orders/pay";
+public class AliPayOrderRequest extends HttpRequest<AliPayOrderResponse> {
+    public static final String ORDERS_PAY = "/orders/alipay";
     private final Long orderId;
     private final String payReturnUrl;
 
-    public PayOrderRequest(Long orderId, String payReturnUrl) {
+    public AliPayOrderRequest(Long orderId, String payReturnUrl) {
         super(ORDERS_PAY);
         this.orderId = orderId;
         this.payReturnUrl = payReturnUrl;
@@ -25,7 +25,7 @@ public class PayOrderRequest extends HttpRequest<PayOrderResponse> {
     }
 
     @Override
-    public Class<PayOrderResponse> getResponseClass() {
-        return PayOrderResponse.class;
+    public Class<AliPayOrderResponse> getResponseClass() {
+        return AliPayOrderResponse.class;
     }
 }
