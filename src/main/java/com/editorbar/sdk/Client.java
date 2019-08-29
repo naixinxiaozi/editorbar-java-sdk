@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class Client {
-    private static String endpoint = "http://127.0.0.1:9998"; //TODO
+    private static String endpoint = "http://link.113lab.com"; //TODO
 
     private Credential credential;
     private OkHttpClient conn;
