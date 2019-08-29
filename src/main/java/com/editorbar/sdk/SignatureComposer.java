@@ -1,7 +1,6 @@
 package com.editorbar.sdk;
 
 import com.editorbar.sdk.util.Base64Helper;
-import com.editorbar.sdk.util.Base64Helper;
 import com.editorbar.sdk.util.URLEncodeUtils;
 
 import java.io.UnsupportedEncodingException;

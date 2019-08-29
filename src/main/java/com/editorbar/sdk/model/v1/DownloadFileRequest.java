@@ -9,14 +9,15 @@ public class DownloadFileRequest extends HttpRequest<DownloadFileResponse> {
 
     public DownloadFileRequest(String url, String identifier) {
         super(DOWNLOAD);
-        if (identifier == null || identifier.isEmpty()) {
-            throw new IllegalArgumentException("identifier can't be empty");
+        if (url == null || url.isEmpty()) {
+            throw new IllegalArgumentException("url can't be empty");
         }
-        this.identifier = identifier;
-        this.putQueryParam("identifier", identifier);
 
         this.url = url;
         this.putQueryParam("url", url);
+
+        this.identifier = identifier;
+        this.putQueryParam("identifier", identifier);
     }
 
     public String getUrl() {
