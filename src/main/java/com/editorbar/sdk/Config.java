@@ -1,6 +1,10 @@
 package com.editorbar.sdk;
 
 public class Config {
+    public static String TEST_ENDPOINT = "http://link.113lab.com";
+    public static String ENDPOINT = "https://openapi.editorbar.com";
+
+    private String endpoint;
     private int connectTimeout = 10;
     private int readTimeout = 20;
     private int writeTimeout = 20;
@@ -9,14 +13,32 @@ public class Config {
     private long keepAliveDuration = 5L;
 
     public Config() {
+        this(ENDPOINT);
     }
 
-    public Config(int connectTimeout, int readTimeout, int writeTimeout, int maxIdleConnections, long keepAliveDuration) {
+    public Config(boolean isDev) {
+        this(isDev ? TEST_ENDPOINT : ENDPOINT);
+    }
+
+    public Config(String endpoint) {
+        this.endpoint = endpoint;
+    }
+
+    public Config(String endpoint, int connectTimeout, int readTimeout, int writeTimeout, int maxIdleConnections, long keepAliveDuration) {
+        this.endpoint = endpoint;
         this.connectTimeout = connectTimeout;
         this.readTimeout = readTimeout;
         this.writeTimeout = writeTimeout;
         this.maxIdleConnections = maxIdleConnections;
         this.keepAliveDuration = keepAliveDuration;
+    }
+
+    public String getEndpoint() {
+        return endpoint;
+    }
+
+    public void setEndpoint(String endpoint) {
+        this.endpoint = endpoint;
     }
 
     public int getConnectTimeout() {

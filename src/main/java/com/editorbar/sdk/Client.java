@@ -11,10 +11,9 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class Client {
-    private static String endpoint = "http://link.113lab.com";
-
     private Credential credential;
     private OkHttpClient conn;
+    private Config config;
 
     public Client(Credential credential) {
         this(new Config(), credential);
@@ -22,11 +21,12 @@ public class Client {
 
     public Client(Config config, Credential credential) {
         this.credential = credential;
+        this.config = config;
         this.initHttpClient(config);
     }
 
     public <T extends HttpResponse> T execute(HttpRequest<T> request) throws IOException {
-        Request req = RequestBuilder.build(endpoint, request, credential);
+        Request req = RequestBuilder.build(this.config.getEndpoint(), request, credential);
 
         Response response = conn.newCall(req).execute();
 
@@ -41,7 +41,7 @@ public class Client {
     }
 
     public <T extends HttpResponse> T getResponse(HttpRequest<T> request) throws IOException, IllegalAccessException, InstantiationException {
-        Request req = RequestBuilder.build(endpoint, request, credential);
+        Request req = RequestBuilder.build(this.config.getEndpoint(), request, credential);
         Response response = conn.newCall(req).execute();
 
         if (response.isSuccessful()) {
