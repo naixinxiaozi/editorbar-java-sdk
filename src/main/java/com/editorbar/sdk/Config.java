@@ -1,13 +1,13 @@
 package com.editorbar.sdk;
 
 public class Config {
-    public static String TEST_ENDPOINT = "http://link.113lab.com";
-    public static String ENDPOINT = "http://link.113lab.com";
+    public static String TEST_ENDPOINT = "http://link.113lab.cn";
+    public static String ENDPOINT = "https://openapi.editorbar.com";
 
     private String endpoint;
-    private int connectTimeout = 10;
-    private int readTimeout = 20;
-    private int writeTimeout = 20;
+    private int connectTimeout = 20;
+    private int readTimeout = 180;
+    private int writeTimeout = 120;
 
     private int maxIdleConnections = 10;
     private long keepAliveDuration = 5L;

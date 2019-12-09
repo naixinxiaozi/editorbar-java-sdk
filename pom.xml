@@ -6,7 +6,7 @@
 
     <groupId>com.editorbar</groupId>
     <artifactId>editorbar-java-sdk</artifactId>
-    <version>0.6</version>
+    <version>0.8</version>
     <packaging>jar</packaging>
 
     <name>Editorbar SDK</name>

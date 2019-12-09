@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class RequestBuilder {
 
@@ -31,8 +32,8 @@ public class RequestBuilder {
         if (request.getMethod().equals(Method.GET)) {
             String strToSign = SignatureComposer.composeStringToSign(request);
             String signature = HmacSHA1Signer.signStr(strToSign, cred.getAppSecret());
-            System.out.println("strToSign=" + strToSign);
-            System.out.println("signature=" + signature);
+//            System.out.println("strToSign=" + strToSign);
+//            System.out.println("signature=" + signature);
             request.putHeader("Authorization", "eb " + cred.getAppKey() + ":" + signature);
 
             Map<String, String> headParams = request.getHeadParams();
@@ -64,8 +65,8 @@ public class RequestBuilder {
 
         String strToSign = SignatureComposer.composeStringToSign(request);
         String signature = HmacSHA1Signer.signStr(strToSign, cred.getAppSecret());
-        System.out.println("strToSign=" + strToSign);
-        System.out.println("signature=" + signature);
+//        System.out.println("strToSign=" + strToSign);
+//        System.out.println("signature=" + signature);
 
         request.putHeader("Authorization", "eb " + cred.getAppKey() + ":" + signature);
 
